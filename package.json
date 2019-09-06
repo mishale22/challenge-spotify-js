@@ -1,0 +1,35 @@
+{
+  "name": "challenge-spotify",
+  "version": "1.0.0",
+  "description": "PSL Spotify Challenge",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha -t 5000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mishale22/challenge-spotify-js.git"
+  },
+  "keywords": [
+    "api-testin",
+    "spotify"
+  ],
+  "author": "Sandra Niño",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mishale22/challenge-spotify-js/issues"
+  },
+  "homepage": "https://github.com/mishale22/challenge-spotify-js#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "http-status-codes": "^1.3.2",
+    "mocha": "^6.2.0"
+  },
+  "dependencies": {
+    "superagent": "^5.1.0",
+    "superagent-promise": "^1.1.0"
+  }
+}
