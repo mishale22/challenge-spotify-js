@@ -13,7 +13,7 @@ describe('Spotify Api Testing', () => {
         grant_type: 'client_credentials'
       };
 
-      const header = 'Basic YzdiODYxNjZhMmQ0NDVhZjljNWVjMDk0M2IzYmY4MWY6MDY3YWFkMzUxYTM5NGZkOTk3OTFlYjE3ZGU1NzU5NmM=';
+      const header = `Basic ${process.env.CLIENT_ID_CLIENT_SECRET}`;
 
       const response = await agent.post(`${urlBase}/api/token`).set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', header).send(requestBody);
 

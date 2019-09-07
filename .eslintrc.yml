@@ -10,4 +10,4 @@ extends:
 rules:
   "comma-dangle": ["error", "never"]
   "no-unused-expressions": "off"
-  
+    
