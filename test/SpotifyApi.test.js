@@ -4,8 +4,8 @@ const chai = require('chai');
 
 const { expect } = chai;
 
-const urlBase = 'https://accounts.spotify.com';
-const urlBase2 = 'https://api.spotify.com';
+const accountUrl = 'https://accounts.spotify.com';
+const apiUrl = 'https://api.spotify.com';
 
 let token = '';
 
@@ -18,7 +18,10 @@ describe('Spotify Api Testing', () => {
 
       const header = `Basic ${process.env.CLIENT_ID_CLIENT_SECRET}`;
 
-      const response = await agent.post(`${urlBase}/api/token`).set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', header).send(requestBody);
+      const response = await agent.post(`${accountUrl}/api/token`)
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+        .set('Authorization', header)
+        .send(requestBody);
 
       token = response.body.access_token;
 
@@ -36,9 +39,11 @@ describe('Spotify Api Testing', () => {
         limit: 20
       };
 
-      const header = `Bearer ${token}`;
+      const authHeader = `Bearer ${token}`;
 
-      const response = await agent.get(`${urlBase2}/v1/search`).set('Authorization', header).query(query);
+      const response = await agent.get(`${apiUrl}/v1/search`)
+        .set('Authorization', authHeader)
+        .query(query);
 
       expect(response.status).to.equal(statusCode.OK);
       expect(response.body.tracks.items).lengthOf(20);
